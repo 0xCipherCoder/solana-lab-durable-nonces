@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["mocha", "chai"],
+    "types": ["mocha", "chai", "node"],
     "lib": ["es2015"],
     "typeRoots": ["./node_modules/@types"],
     "target": "es6",

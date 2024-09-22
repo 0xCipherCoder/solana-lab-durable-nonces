@@ -5,19 +5,19 @@ import {
   NONCE_ACCOUNT_LENGTH,
   NonceAccount,
   PublicKey,
-  sendAndConfirmRawTransaction,
   sendAndConfirmTransaction,
   SystemProgram,
   Transaction,
+  DurableNonceTransactionConfirmationStrategy,
 } from '@solana/web3.js';
-import { initializeKeypair, makeKeypairs } from '@solana-developers/helpers';
-import base58 from 'bs58';
+import { initializeKeypair, airdropIfRequired, getExplorerLink } from '@solana-developers/helpers';
 import { assert } from 'chai';
-import dotenv from 'dotenv';
-dotenv.config();
 
 const LOCALHOST_RPC_URL = 'http://localhost:8899';
 const CONFIRMATION_COMMITMENT = 'confirmed';
+const AIRDROP_AMOUNT = 3 * LAMPORTS_PER_SOL;
+const MINIMUM_BALANCE = 1 * LAMPORTS_PER_SOL;
+const TRANSFER_AMOUNT = 0.1 * LAMPORTS_PER_SOL;
 
 const connection = new Connection(LOCALHOST_RPC_URL, CONFIRMATION_COMMITMENT);
 
