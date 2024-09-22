@@ -12,20 +12,33 @@ import {
 } from '@solana/web3.js';
 import { initializeKeypair, makeKeypairs } from '@solana-developers/helpers';
 import base58 from 'bs58';
-import assert from 'assert';
+import { assert } from 'chai';
 import dotenv from 'dotenv';
 dotenv.config();
 
-describe('durable nonces', () => {
-  const connection = new Connection('http://localhost:8899', 'confirmed');
+const LOCALHOST_RPC_URL = 'http://localhost:8899';
+const CONFIRMATION_COMMITMENT = 'confirmed';
 
-  it('Creates a durable transaction and submits it', async () => {});
+const connection = new Connection(LOCALHOST_RPC_URL, CONFIRMATION_COMMITMENT);
 
-  it('Fails if the nonce has advanced', async () => {});
+describe('Durable Nonce Transactions', () => {
+  it('creates and submits a durable transaction successfully', async () => {
+    // Implementation will be added later
+  });
 
-  it('Advances the nonce account even if the transaction fails', async () => {});
+  it('fails when attempting to use an advanced nonce', async () => {
+    // Implementation will be added later
+  });
 
-  it('The nonce account will not advance if the transaction fails because the nonce auth did not sign the transaction', async () => {});
+  it('advances the nonce account even when the transaction fails', async () => {
+    // Implementation will be added later
+  });
 
-  it('Submits after changing the nonce auth to an already signed address', async () => {});
+  it('does not advance the nonce account when the nonce authority fails to sign', async () => {
+    // Implementation will be added later
+  });
+
+  it('submits successfully after changing the nonce authority to a pre-signed address', async () => {
+    // Implementation will be added later
+  });
 });
